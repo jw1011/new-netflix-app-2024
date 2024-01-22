@@ -1,12 +1,12 @@
 import React from "react";
-import { usePopularMoviesQuery } from "../../../../hooks/usePopularMovies";
+import { useTopRatedMoviesQuery } from "../../../../hooks/useTopRatedMovies";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 import { responsive } from "../../../../constants/responsive";
 
-const PopularMovieSlide = () => {
-  const { data, isLoading, isError, error } = usePopularMoviesQuery();
+const TopRatedMovieSlide = () => {
+  const { data, isLoading, isError, error } = useTopRatedMoviesQuery();
   if (isLoading) {
     <Spinner animation="border" variant="danger">
       loading...
@@ -18,7 +18,7 @@ const PopularMovieSlide = () => {
   return (
     <div className="movieList">
       <MovieSlider
-        title="Popular Movies"
+        title="Top Rated Movies"
         movies={data.results}
         responsive={responsive}
       />
@@ -26,4 +26,4 @@ const PopularMovieSlide = () => {
   );
 };
 
-export default PopularMovieSlide;
+export default TopRatedMovieSlide;
